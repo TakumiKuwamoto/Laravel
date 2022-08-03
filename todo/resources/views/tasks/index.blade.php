@@ -138,7 +138,11 @@
                     <div class="title">タイトル: {{$task->title}}</div>
                     <div class="content">内容: {{$task->contents}}</div>
                     <div class="button"><a>delete</a></div>
+
+                    <div class="button"><a href="{{route('tasks.edit',$task->id)}}">edit</a></div>
+
                     <div class="button"><a href="">edit</a></div>
+
                     <div class="button"><a href="">いいね</a></div>
                     @endforeach
                 </div>
