@@ -35,5 +35,23 @@ class TaskController extends Controller
 
         return redirect()->route('tasks.index');
     }
+    
+    function edit($id)
+    {
+        $task = Task::find($id);
+        return view('tasks.edit',compact('task'));
+    }
+    function update(Request $request,$id)
+    {
+        $tasks = Task::all();
+        $task = Task::find($id);
+
+        $task -> title = $request -> title;
+        $task -> image_at = $request -> image;
+        $task -> contents = $request -> body;
+        $task -> save();
+
+        return view('tasks.index',compact('tasks','task'));//ブログアプリは詳細ページを経由しているのと異なり、todoアプリはindex画面から直接編集画面に飛んでいるので、コンパクト関数に２つの引数を指定しないといけない
+    }
 
 }
