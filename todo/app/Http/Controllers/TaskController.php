@@ -35,6 +35,7 @@ class TaskController extends Controller
 
         return redirect()->route('tasks.index');
     }
+
     
     function edit($id)
     {
@@ -59,6 +60,7 @@ class TaskController extends Controller
         $task = Task::find($id);
         $task ->delete();
 
+
         return redirect('/tasks');
     }
     function show()
@@ -66,4 +68,7 @@ class TaskController extends Controller
         $tasks = Task::all();
         return view('tasks.index', compact('tasks'));
     }
+
+
+
 }
