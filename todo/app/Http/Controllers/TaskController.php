@@ -9,7 +9,8 @@ use Illuminate\Support\Facades\Auth;
 class TaskController extends Controller
 {
     function index(){
-        $tasks = Task::all();
+        $tasks = Task::latest()->get();
+        
         return view('tasks.index', compact('tasks'));
     }
     function create()
@@ -52,12 +53,11 @@ class TaskController extends Controller
         $task -> contents = $request -> body;
         $task -> save();
 
-        return redirect('/tasks');
-        
+        return view('tasks.index',compact('tasks','task'));//ブログアプリは詳細ページを経由しているのと異なり、todoアプリはindex画面から直接編集画面に飛んでいるので、コンパクト関数に２つの引数を指定しないといけない
     }
     function destroy($id)
     {
-       
+        $tasks= Task::all();
         $task = Task::find($id);
         $task ->delete();
 
