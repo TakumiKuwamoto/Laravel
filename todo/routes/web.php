@@ -22,3 +22,5 @@ Route::resource('tasks','TaskController');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::get('/search','TaskController@search') -> name('tasks.search'); //データを扱うときはpost
