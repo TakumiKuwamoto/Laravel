@@ -2,6 +2,7 @@
 header{
     height: 100px;
     background-color: rgb(55, 55, 66);
+    color: white;
  }
  .logo{
     height: 100px;
@@ -9,12 +10,21 @@ header{
     line-height: 100px;
     padding: 0 50px;
     
+    
  }
+ .logo a{
+    color: white;
+    text-decoration: none;
+ }
+ 
  .create{
     float: right;
     height: 100px;
     line-height: 100px;
+    padding-right: 50px;
+    
  }
+
  .search{
     float: left;
     line-height: 100px;
@@ -26,16 +36,13 @@ header{
     width: 80vw;
     margin: 0 auto;
  }
- .tasks{
-    
- 
-    
- }
 .task{
     margin:5px;
     float: left;
     width: 24%;
     margin-top: 100px;
+    border: 1px solid black;
+    padding-bottom: 20px;
     
     
     
@@ -53,10 +60,19 @@ header{
 }
 .button{
     float: right;
+   
 }
-a{
+.button input{
     text-decoration: none;
-    color: black;
+    background-color: rgb(55, 55, 66);
+    color: white;
     margin-right: 5px;
+    
+    
 }
+.create a{
+    color:white;
+    text-decoration: none;
+
+ }
 

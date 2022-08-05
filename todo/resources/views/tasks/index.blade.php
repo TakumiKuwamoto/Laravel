@@ -9,9 +9,14 @@
     <link rel="stylesheet" href="{{asset('css/todo.css')}}">
 </head>
 <body>
-    <header>
-        <div class="logo">TODO</div>
-        <div class="search"><input type="text"></div>
+<header>
+        <div class="logo"><a href="/tasks">TODO</a></div>
+        <form class="search" action="{{route('tasks.search')}}" method="get">
+        @csrf
+            <input type="text" name="title">
+            <input type="submit" value="search">
+        </form>
+        
         <div class="create"><a href="{{ route('tasks.create')}}">create</a></div>
     </header>
     <div class="main">

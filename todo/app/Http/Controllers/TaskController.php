@@ -9,8 +9,7 @@ use Illuminate\Support\Facades\Auth;
 class TaskController extends Controller
 {
     function index(){
-        $tasks = Task::latest()->get();
-        
+        $tasks = Task::all();
         return view('tasks.index', compact('tasks'));
     }
     function create()
@@ -67,6 +66,13 @@ class TaskController extends Controller
     function show()
     {
         $tasks = Task::all();
+        return view('tasks.index', compact('tasks'));
+    }
+    function search(Request $request){
+        $keyword_title = $request->title;
+
+        $query = Task::query();
+        $tasks = $query->where('title','like', '%' .$keyword_title. '%')->get();
         return view('tasks.index', compact('tasks'));
     }
 
